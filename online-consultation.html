@@ -75,21 +75,27 @@
     </div>
   </header>
 
+  <!-- MOBILE DRAWER BACKDROP OVERLAY -->
+  <div class="mobile-drawer-backdrop" id="mobileBackdrop" onclick="toggleMobileMenu()"></div>
+
   <!-- MOBILE SLIDE-OUT DRAWER NAVIGATION -->
   <div class="mobile-nav-drawer" id="mobileDrawer">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-light);" data-en="Navigation" data-hi="नेविगेशन">Navigation</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.8rem;">
+      <div>
+        <h3 style="font-size: 1.25rem; font-weight: 900; color: var(--primary);" data-en="AAROGYAM MENU" data-hi="आरोग्यम मेनू">AAROGYAM MENU</h3>
+        <p style="font-size: 0.72rem; color: var(--text-muted);" data-en="All Hospital Pages" data-hi="सभी पृष्ठ उपलब्ध हैं">All Hospital Pages</p>
+      </div>
       <button onclick="toggleMobileMenu()" style="background: var(--bg-alt); border: none; width: 36px; height: 36px; border-radius: 50%; font-weight: 800; cursor: pointer;">✕</button>
     </div>
 
-    <a href="index.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
-    <a href="online-consultation.html" class="nav-link active" style="color: #f59e0b; font-weight: 800;" onclick="toggleMobileMenu()" data-en="🌐 Online Video Consultation" data-hi="🌐 ऑनलाइन वीडियो परामर्श">🌐 Online Video Consultation</a>
-    <a href="about.html" class="nav-link" onclick="toggleMobileMenu()" data-en="About Us & Heritage" data-hi="हमारे बारे में">About Us & Heritage</a>
-    <a href="specialties.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Clinical Specialties" data-hi="इलाज विशेषज्ञता">Clinical Specialties</a>
-    <a href="stone-calculator.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Stone Recovery Estimator" data-hi="पथरी कैलकुलेटर">Stone Recovery Estimator</a>
-    <a href="symptom-triage.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Symptom Assessment" data-hi="लक्षण जाँच">Symptom Assessment</a>
-    <a href="testimonials.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Recovery Stories" data-hi="मरीजों के अनुभव">Recovery Stories</a>
-    <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Contact" data-hi="संपर्क">Contact</a>
+    <a href="index.html" class="nav-link" onclick="toggleMobileMenu()" data-en="🏠 Home Page" data-hi="🏠 मुख्य पृष्ठ">🏠 Home Page</a>
+    <a href="online-consultation.html" class="nav-link active" style="color: #f59e0b; font-weight: 800;" onclick="toggleMobileMenu()" data-en="🌐 Online Video Call" data-hi="🌐 ऑनलाइन वीडियो परामर्श">🌐 Online Video Call</a>
+    <a href="about.html" class="nav-link" onclick="toggleMobileMenu()" data-en="🏥 About Us & Heritage" data-hi="🏥 हमारे बारे में">🏥 About Us & Heritage</a>
+    <a href="specialties.html" class="nav-link" onclick="toggleMobileMenu()" data-en="💊 Clinical Specialties" data-hi="💊 इलाज विशेषज्ञता">💊 Clinical Specialties</a>
+    <a href="stone-calculator.html" class="nav-link" onclick="toggleMobileMenu()" data-en="🧮 Stone Recovery Calculator" data-hi="🧮 पथरी कैलकुलेटर">🧮 Stone Recovery Calculator</a>
+    <a href="symptom-triage.html" class="nav-link" onclick="toggleMobileMenu()" data-en="🩺 Symptom Assessment" data-hi="🩺 लक्षण जाँच">🩺 Symptom Assessment</a>
+    <a href="testimonials.html" class="nav-link" onclick="toggleMobileMenu()" data-en="📜 Ultrasound Cases" data-hi="📜 मरीजों के अनुभव">📜 Ultrasound Cases</a>
+    <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()" data-en="📍 Hospital Location & Address" data-hi="📍 संपर्क व पता">📍 Hospital Location & Address</a>
   </div>
 
   <!-- PAGE HERO -->
@@ -101,10 +107,9 @@
     </div>
   </section>
 
-  <!-- 4-STEP PROCESS -->
+  <!-- FORM SECTION -->
   <section class="section-padding">
     <div class="container">
-      
       <div class="glass-card" style="padding: 2.5rem; max-width: 720px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 2rem;">
           <span class="badge-mint" style="margin-bottom: 0.5rem;" data-en="Instant Registration" data-hi="त्वरित पंजीकरण">Instant Registration</span>
@@ -136,9 +141,30 @@
           </button>
         </form>
       </div>
-
     </div>
   </section>
+
+  <!-- DESKTOP MULTI-ACTION FLOATING DESK WIDGET -->
+  <div class="desktop-widget-desk hide-on-mobile" id="desktopWidget">
+    <div class="desktop-widget-menu">
+      <a href="https://wa.me/919452994529?text=Hello%20Aarogyam%20Hospital,%20I%20want%20to%20consult%20Dr.%20P.%20Kumar" target="_blank" class="widget-item-btn" style="color: #25d366;">
+        <i data-lucide="message-square" style="width: 20px; height: 20px;"></i>
+        <span data-en="WhatsApp Doctor (+91 94529 94529)" data-hi="व्हाट्सएप परामर्श (+91 94529 94529)">WhatsApp Doctor (+91 94529 94529)</span>
+      </a>
+      <a href="tel:+919452994529" class="widget-item-btn" style="color: #0284c7;">
+        <i data-lucide="phone-call" style="width: 20px; height: 20px;"></i>
+        <span data-en="Call Helpline" data-hi="कॉल हेल्पलाइन">Call Helpline</span>
+      </a>
+      <a href="stone-calculator.html" class="widget-item-btn" style="color: #d97706;">
+        <i data-lucide="calculator" style="width: 20px; height: 20px;"></i>
+        <span data-en="Stone Dissolution Calculator" data-hi="पथरी कैलकुलेटर">Stone Dissolution Calculator</span>
+      </a>
+    </div>
+
+    <button onclick="toggleDesktopWidget()" class="widget-trigger-btn" title="Quick Desk Widget">
+      <i data-lucide="headphones" style="width: 28px; height: 28px;"></i>
+    </button>
+  </div>
 
   <!-- FOOTER -->
   <footer style="background: #021a14; color: #e2e8f0; padding: 4rem 0 2rem 0;">
