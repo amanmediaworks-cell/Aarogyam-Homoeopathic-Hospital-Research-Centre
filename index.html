@@ -40,7 +40,6 @@
           <span data-en="WhatsApp Desk" data-hi="व्हाट्सएप परामर्श">WhatsApp Desk</span>
         </a>
 
-        <!-- Language Switcher Button -->
         <button class="langBtn" onclick="toggleLanguage()" style="background: rgba(255, 255, 255, 0.25); color: #ffffff; border: none; padding: 0.25rem 0.65rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; gap: 0.3rem;">
           🇮🇳 हिंदी
         </button>
@@ -80,7 +79,7 @@
         <a href="contact.html" class="nav-link" data-en="Contact" data-hi="संपर्क">Contact</a>
       </nav>
 
-      <!-- Right Actions -->
+      <!-- Desktop & Mobile Right Actions -->
       <div style="display: flex; align-items: center; gap: 0.75rem;">
         <button onclick="toggleTheme()" style="background: var(--bg-alt); border: 1px solid var(--border-color); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
           <i data-lucide="moon" id="themeIcon" style="width: 20px; height: 20px;"></i>
@@ -100,25 +99,55 @@
     </div>
   </header>
 
+  <!-- MOBILE DRAWER BACKDROP OVERLAY -->
+  <div class="mobile-drawer-backdrop" id="mobileBackdrop" onclick="toggleMobileMenu()"></div>
+
   <!-- MOBILE SLIDE-OUT DRAWER NAVIGATION -->
   <div class="mobile-nav-drawer" id="mobileDrawer">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-light);" data-en="Navigation" data-hi="नेविगेशन">Navigation</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.8rem;">
+      <div>
+        <h3 style="font-size: 1.25rem; font-weight: 900; color: var(--primary);" data-en="AAROGYAM MENU" data-hi="आरोग्यम मेनू">AAROGYAM MENU</h3>
+        <p style="font-size: 0.72rem; color: var(--text-muted);" data-en="All Hospital Pages" data-hi="सभी पृष्ठ उपलब्ध हैं">All Hospital Pages</p>
+      </div>
       <button onclick="toggleMobileMenu()" style="background: var(--bg-alt); border: none; width: 36px; height: 36px; border-radius: 50%; font-weight: 800; cursor: pointer;">✕</button>
     </div>
 
-    <a href="index.html" class="nav-link active" onclick="toggleMobileMenu()" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
-    <a href="online-consultation.html" class="nav-link" style="color: #f59e0b; font-weight: 800;" onclick="toggleMobileMenu()" data-en="🌐 Online Video Consultation" data-hi="🌐 ऑनलाइन वीडियो परामर्श">🌐 Online Video Consultation</a>
-    <a href="about.html" class="nav-link" onclick="toggleMobileMenu()" data-en="About Us & Heritage" data-hi="हमारे बारे में">About Us & Heritage</a>
-    <a href="specialties.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Clinical Specialties" data-hi="इलाज विशेषज्ञता">Clinical Specialties</a>
-    <a href="stone-calculator.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Stone Recovery Estimator" data-hi="पथरी कैलकुलेटर">Stone Recovery Estimator</a>
-    <a href="symptom-triage.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Symptom & Body Assessment" data-hi="लक्षण जाँच">Symptom & Body Assessment</a>
-    <a href="testimonials.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Ultrasound Recovery Cases" data-hi="मरीजों के अनुभव">Ultrasound Recovery Cases</a>
-    <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Hospital Address & Helpline" data-hi="संपर्क व पता">Hospital Address & Helpline</a>
+    <a href="index.html" class="nav-link active" onclick="toggleMobileMenu()">
+      <span data-en="🏠 Home Page" data-hi="🏠 मुख्य पृष्ठ">🏠 Home Page</span>
+      <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+    </a>
+    <a href="online-consultation.html" class="nav-link" style="color: #f59e0b; font-weight: 800;" onclick="toggleMobileMenu()">
+      <span data-en="🌐 Online Video Call" data-hi="🌐 ऑनलाइन वीडियो परामर्श">🌐 Online Video Call</span>
+      <i data-lucide="video" style="width: 16px; height: 16px;"></i>
+    </a>
+    <a href="about.html" class="nav-link" onclick="toggleMobileMenu()">
+      <span data-en="🏥 About Us & Heritage" data-hi="🏥 हमारे बारे में">🏥 About Us & Heritage</span>
+      <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+    </a>
+    <a href="specialties.html" class="nav-link" onclick="toggleMobileMenu()">
+      <span data-en="💊 Clinical Specialties" data-hi="💊 इलाज विशेषज्ञता">💊 Clinical Specialties</span>
+      <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+    </a>
+    <a href="stone-calculator.html" class="nav-link" onclick="toggleMobileMenu()">
+      <span data-en="🧮 Stone Recovery Calculator" data-hi="🧮 पथरी कैलकुलेटर">🧮 Stone Recovery Calculator</span>
+      <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+    </a>
+    <a href="symptom-triage.html" class="nav-link" onclick="toggleMobileMenu()">
+      <span data-en="🩺 Symptom Assessment" data-hi="🩺 लक्षण जाँच">🩺 Symptom Assessment</span>
+      <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+    </a>
+    <a href="testimonials.html" class="nav-link" onclick="toggleMobileMenu()">
+      <span data-en="📜 Ultrasound Cases" data-hi="📜 मरीजों के अनुभव">📜 Ultrasound Cases</span>
+      <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+    </a>
+    <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()">
+      <span data-en="📍 Hospital Location & Address" data-hi="📍 संपर्क व पता">📍 Hospital Location & Address</span>
+      <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+    </a>
 
-    <div style="margin-top: auto; padding-top: 1.5rem;">
+    <div style="margin-top: auto; padding-top: 1rem;">
       <button onclick="toggleMobileMenu(); openModal();" class="btn-primary" style="width: 100%;">
-        <span data-en="Book Appointment Now" data-hi="अभी अपॉइंटमेंट बुक करें">Book Appointment Now</span>
+        <span data-en="Book Doctor Consultation" data-hi="डॉक्टर अपॉइंटमेंट बुक करें">Book Doctor Consultation</span>
       </button>
     </div>
   </div>
@@ -230,6 +259,32 @@
       </div>
     </div>
   </section>
+
+  <!-- DESKTOP MULTI-ACTION FLOATING DESK WIDGET -->
+  <div class="desktop-widget-desk hide-on-mobile" id="desktopWidget">
+    <div class="desktop-widget-menu">
+      <a href="https://wa.me/919452994529?text=Hello%20Aarogyam%20Hospital,%20I%20want%20to%20consult%20Dr.%20P.%20Kumar" target="_blank" class="widget-item-btn" style="color: #25d366;">
+        <i data-lucide="message-square" style="width: 20px; height: 20px;"></i>
+        <span data-en="WhatsApp Doctor (+91 94529 94529)" data-hi="व्हाट्सएप परामर्श (+91 94529 94529)">WhatsApp Doctor (+91 94529 94529)</span>
+      </a>
+      <a href="tel:+919452994529" class="widget-item-btn" style="color: #0284c7;">
+        <i data-lucide="phone-call" style="width: 20px; height: 20px;"></i>
+        <span data-en="Call Helpline" data-hi="कॉल हेल्पलाइन">Call Helpline</span>
+      </a>
+      <a href="stone-calculator.html" class="widget-item-btn" style="color: #d97706;">
+        <i data-lucide="calculator" style="width: 20px; height: 20px;"></i>
+        <span data-en="Stone Dissolution Calculator" data-hi="पथरी कैलकुलेटर">Stone Dissolution Calculator</span>
+      </a>
+      <a href="online-consultation.html" class="widget-item-btn" style="color: #10b981;">
+        <i data-lucide="video" style="width: 20px; height: 20px;"></i>
+        <span data-en="Book Video Call Slot" data-hi="वीडियो कॉल स्लॉट बुक करें">Book Video Call Slot</span>
+      </a>
+    </div>
+
+    <button onclick="toggleDesktopWidget()" class="widget-trigger-btn" title="Quick Desk Widget">
+      <i data-lucide="headphones" style="width: 28px; height: 28px;"></i>
+    </button>
+  </div>
 
   <!-- FOOTER -->
   <footer style="background: #021a14; color: #e2e8f0; padding: 3.5rem 0 2rem 0;">

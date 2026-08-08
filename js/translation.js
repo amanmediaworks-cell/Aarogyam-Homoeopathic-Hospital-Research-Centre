@@ -1,4 +1,4 @@
-/* Aarogyam Homoeopathic Hospital - Global Translation & Persistence Engine */
+/* Aarogyam Homoeopathic Hospital - Global Engine */
 
 let currentLang = localStorage.getItem('aarogyam_lang') || 'en';
 let currentTheme = localStorage.getItem('aarogyam_theme') || 'light';
@@ -28,12 +28,12 @@ function toggleLanguage() {
 function applyLanguage(lang) {
   const isHindi = lang === 'hi';
 
-  // Update all language toggle buttons
+  // Update language buttons
   document.querySelectorAll('.langBtn').forEach(btn => {
     btn.innerHTML = isHindi ? '🇬🇧 English' : '🇮🇳 हिंदी';
   });
 
-  // Update all elements with data-en and data-hi attributes
+  // Update element text & placeholders
   document.querySelectorAll('[data-en]').forEach(el => {
     const textEn = el.getAttribute('data-en');
     const textHi = el.getAttribute('data-hi');
@@ -66,7 +66,14 @@ function toggleTheme() {
 
 function toggleMobileMenu() {
   const drawer = document.getElementById('mobileDrawer');
+  const backdrop = document.getElementById('mobileBackdrop');
   if (drawer) drawer.classList.toggle('active');
+  if (backdrop) backdrop.classList.toggle('active');
+}
+
+function toggleDesktopWidget() {
+  const widget = document.getElementById('desktopWidget');
+  if (widget) widget.classList.toggle('open');
 }
 
 function openModal(specialty) {
