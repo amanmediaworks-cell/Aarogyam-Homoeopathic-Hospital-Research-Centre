@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/jpeg" href="cropped-Aarogyam-Homoeopathic.jpeg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Non-Surgical Stone Dissolution Estimator | Aarogyam Hospital</title>
+  <meta name="description" content="Interactive non-surgical kidney and gallbladder stone dissolution calculator. Calculate estimated homeopathic recovery timeline based on stone size." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-glass); border-bottom: 1px solid var(--border-color); backdrop-filter: blur(20px); padding: 0.85rem 0;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.9rem;">
+        <div style="width: 52px; height: 52px; border-radius: 14px; overflow: hidden; border: 2px solid var(--primary); background: #ffffff;">
+          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div>
+          <span style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
+          <p style="font-size: 0.78rem; color: var(--primary-light); font-weight: 700;">Homoeopathic Hospital (Since 1964)</p>
+        </div>
+      </a>
+
+      <nav style="display: flex; align-items: center; gap: 0.8rem;" class="hide-on-mobile">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="specialties.html" class="nav-link">Specialties</a>
+        <a href="stone-calculator.html" class="nav-link active">Stone Calculator</a>
+        <a href="symptom-triage.html" class="nav-link">Symptom Assessment</a>
+        <a href="testimonials.html" class="nav-link">Recovery Stories</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <button onclick="openModal()" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.92rem;">
+        <span>Book Consultation</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge-heritage" style="margin-bottom: 1rem;">Clinical Tool</span>
+      <h1>Stone Recovery <span class="gradient-text">Estimator</span></h1>
+      <p>Calculate estimated non-surgical homeopathic dissolution timeline for kidney and gallbladder stones.</p>
+    </div>
+  </section>
+
+  <!-- CALCULATOR SECTION -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="calculator-grid">
+        
+        <!-- Controls -->
+        <div class="glass-card" style="padding: 2.5rem;">
+          <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;">Select Stone Parameters</h3>
+
+          <div style="margin-bottom: 1.8rem;">
+            <label style="font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 0.6rem;">Stone Location:</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <button type="button" id="locKidney" onclick="setCalcLocation('Kidney')" style="padding: 0.85rem; border-radius: 12px; border: 2px solid var(--primary); background: var(--primary-bg); color: var(--primary-dark); font-weight: 800; cursor: pointer;">
+                Renal / Kidney Stone
+              </button>
+              <button type="button" id="locGallbladder" onclick="setCalcLocation('Gallbladder')" style="padding: 0.85rem; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); font-weight: 700; cursor: pointer;">
+                Gallbladder Stone
+              </button>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+              <label style="font-size: 0.9rem; font-weight: 700;">Stone Size (millimeters):</label>
+              <span id="stoneSizeVal" style="font-size: 1.4rem; font-weight: 900; color: var(--primary-light);">8 mm</span>
+            </div>
+            <input type="range" id="stoneSizeSlider" min="3" max="24" value="8" oninput="updateCalculator()" style="width: 100%; accent-color: var(--primary); height: 8px; cursor: pointer;" />
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-light); margin-top: 0.4rem;">
+              <span>3 mm (Small)</span>
+              <span>12 mm (Moderate)</span>
+              <span>24 mm (Large)</span>
+            </div>
+          </div>
+
+          <button onclick="updateCalculator()" class="btn-primary" style="width: 100%; padding: 0.9rem;">
+            <i data-lucide="refresh-cw" style="width: 18px; height: 18px;"></i>
+            <span>Recalculate Estimate</span>
+          </button>
+        </div>
+
+        <!-- Result -->
+        <div class="glass-card" style="padding: 2.5rem; background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-dark) 100%); color: #ffffff;">
+          <span class="badge-heritage" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); margin-bottom: 1rem;">
+            Clinical Recovery Estimate
+          </span>
+
+          <h3 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 1.2rem;">Non-Surgical Dissolution Prognosis</h3>
+
+          <div style="background: rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.15);">
+            <p style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.75); text-transform: uppercase; font-weight: 700;">ESTIMATED HEALING TIME:</p>
+            <h2 id="calcResultWeeks" style="font-size: 2.8rem; font-weight: 900; color: #34d399; margin: 0.3rem 0;">4 to 6 Weeks</h2>
+            <p id="calcResultDetails" style="font-size: 0.92rem; color: #e2e8f0;">
+              High potency Hahnemannian remedies will dissolve the 8mm Renal stone into micro-sand passed painlessly with urine.
+            </p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.8rem; font-size: 0.85rem;">
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 0.8rem; border-radius: 10px;">
+              <span style="color: #94a3b8; display: block;">SUCCESS RATE:</span>
+              <strong style="color: #ffffff; font-size: 1.1rem;" id="calcSuccessRate">96% Verified</strong>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 0.8rem; border-radius: 10px;">
+              <span style="color: #94a3b8; display: block;">SURGERY:</span>
+              <strong style="color: #34d399; font-size: 1.1rem;">Not Required</strong>
+            </div>
+          </div>
+
+          <button onclick="openModal('Kidney & Gallbladder Stones')" class="btn-gold" style="width: 100%; padding: 0.9rem;">
+            <span>Book Consultation for Stone Cure</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #021a14; color: #e2e8f0; padding: 4rem 0 2rem 0;">
+    <div class="container">
+      <p style="text-align: center; font-size: 0.85rem;">© 2026 Aarogyam Homoeopathic Hospital & Research Centre (Since 1964). Patna Railway Colony, Digha, Patna.</p>
+    </div>
+  </footer>
+
+  <!-- APPOINTMENT MODAL -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-content glass-card">
+      <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; border: none; background: none; font-size: 1.2rem; cursor: pointer;">✕</button>
+      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Book Appointment</h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Aarogyam Hospital • Dr. P. Kumar</p>
+      <form onsubmit="handleModalSubmit(event)">
+        <input type="text" id="modalName" required placeholder="Full Name" style="width: 100%; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-color);" />
+        <input type="tel" id="modalPhone" required placeholder="Mobile Number" style="width: 100%; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-color);" />
+        <button type="submit" class="btn-primary" style="width: 100%;">Send to WhatsApp (+91 94529 94529)</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    let calcLocation = 'Kidney';
+
+    function setCalcLocation(loc) {
+      calcLocation = loc;
+      document.getElementById('locKidney').style.borderColor = loc === 'Kidney' ? 'var(--primary)' : 'var(--border-color)';
+      document.getElementById('locKidney').style.background = loc === 'Kidney' ? 'var(--primary-bg)' : 'var(--bg-card)';
+      document.getElementById('locGallbladder').style.borderColor = loc === 'Gallbladder' ? 'var(--primary)' : 'var(--border-color)';
+      document.getElementById('locGallbladder').style.background = loc === 'Gallbladder' ? 'var(--primary-bg)' : 'var(--bg-card)';
+      updateCalculator();
+    }
+
+    function updateCalculator() {
+      const size = parseInt(document.getElementById('stoneSizeSlider').value);
+      document.getElementById('stoneSizeVal').innerText = size + ' mm';
+      let weeks = '4 to 6 Weeks';
+      let rate = '96% Success';
+
+      if (size <= 6) { weeks = '2 to 4 Weeks'; rate = '98% Success'; }
+      else if (size <= 12) { weeks = '4 to 8 Weeks'; rate = '95% Success'; }
+      else if (size <= 18) { weeks = '8 to 14 Weeks'; rate = '91% Success'; }
+      else { weeks = '12 to 20 Weeks'; rate = '87% Success'; }
+
+      document.getElementById('calcResultWeeks').innerText = weeks;
+      document.getElementById('calcSuccessRate').innerText = rate;
+      document.getElementById('calcResultDetails').innerText = `High potency Hahnemannian remedies will dissolve the ${size}mm ${calcLocation} stone naturally without surgery.`;
+    }
+
+    function openModal() { document.getElementById('bookingModal').classList.add('active'); }
+    function closeModal() { document.getElementById('bookingModal').classList.remove('active'); }
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      const text = `*NEW APPOINTMENT BOOKING*\nName: ${document.getElementById('modalName').value}\nPhone: ${document.getElementById('modalPhone').value}\nSpecialty: Kidney & Gallbladder Stones`;
+      window.open(`https://wa.me/919452994529?text=${encodeURIComponent(text)}`, '_blank');
+      closeModal();
+    }
+  </script>
+</body>
+</html>
