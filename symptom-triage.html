@@ -15,41 +15,72 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- TOP HELPLINE BAR -->
+  <div style="background: linear-gradient(90deg, #022c22 0%, #059669 100%); color: #ffffff; padding: 0.5rem 0; font-size: 0.88rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem;">
+      <div style="display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap;">
+        <span style="display: flex; align-items: center; gap: 0.45rem; font-weight: 600;">
+          <span class="live-pulse"></span>
+          <span data-en="Patna OPD Active Today" data-hi="पटना ओपीडी आज खुला है">Patna OPD Active Today</span>
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="tel:+919452994529" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+          <i data-lucide="phone-call" style="width: 15px; height: 15px; color: #38bdf8;"></i>
+          <span>+91 94529 94529</span>
+        </a>
+        <button class="langBtn" onclick="toggleLanguage()" style="background: rgba(255, 255, 255, 0.25); color: #ffffff; border: none; padding: 0.25rem 0.65rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 800;">
+          🇮🇳 हिंदी
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
   <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-glass); border-bottom: 1px solid var(--border-color); backdrop-filter: blur(20px); padding: 0.85rem 0;">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.9rem;">
-        <div style="width: 52px; height: 52px; border-radius: 14px; overflow: hidden; border: 2px solid var(--primary); background: #ffffff;">
-          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;" />
+      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.8rem;">
+        <div class="logo-container">
+          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" onerror="this.src='public/cropped-Aarogyam-Homoeopathic.jpeg'" />
         </div>
         <div>
-          <span style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
-          <p style="font-size: 0.78rem; color: var(--primary-light); font-weight: 700;">Homoeopathic Hospital (Since 1964)</p>
+          <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
+          <p style="font-size: 0.75rem; color: var(--primary-light); font-weight: 700;" data-en="Homoeopathic Hospital (Since 1964)" data-hi="होम्योपैथिक अस्पताल (1964 से)">Homoeopathic Hospital (Since 1964)</p>
         </div>
       </a>
 
-      <nav style="display: flex; align-items: center; gap: 0.8rem;" class="hide-on-mobile">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About Us</a>
-        <a href="specialties.html" class="nav-link">Specialties</a>
-        <a href="stone-calculator.html" class="nav-link">Stone Calculator</a>
-        <a href="symptom-triage.html" class="nav-link active">Symptom Assessment</a>
-        <a href="testimonials.html" class="nav-link">Recovery Stories</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+      <nav style="display: flex; align-items: center; gap: 0.6rem;" class="hide-on-mobile">
+        <a href="index.html" class="nav-link" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+        <a href="online-consultation.html" class="nav-link" style="color: #f59e0b; font-weight: 800;" data-en="🌐 Online Consultation" data-hi="🌐 ऑनलाइन परामर्श">🌐 Online Consultation</a>
+        <a href="about.html" class="nav-link" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
+        <a href="specialties.html" class="nav-link" data-en="Specialties" data-hi="इलाज विशेषज्ञता">Specialties</a>
+        <a href="stone-calculator.html" class="nav-link" data-en="Stone Calculator" data-hi="पथरी कैलकुलेटर">Stone Calculator</a>
+        <a href="symptom-triage.html" class="nav-link active" data-en="Symptom Assessment" data-hi="लक्षण जाँच">Symptom Assessment</a>
+        <a href="testimonials.html" class="nav-link" data-en="Recovery Stories" data-hi="मरीजों के अनुभव">Recovery Stories</a>
+        <a href="contact.html" class="nav-link" data-en="Contact" data-hi="संपर्क">Contact</a>
       </nav>
 
-      <button onclick="openModal()" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.92rem;">
-        <span>Book Consultation</span>
-      </button>
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button onclick="toggleTheme()" style="background: var(--bg-alt); border: 1px solid var(--border-color); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <i data-lucide="moon" id="themeIcon" style="width: 20px; height: 20px;"></i>
+        </button>
+        <button onclick="openModal()" class="btn-primary hide-on-mobile">
+          <span data-en="Book Consultation" data-hi="परामर्श बुक करें">Book Consultation</span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="show-on-mobile" style="background: var(--primary-bg); border: 1px solid var(--primary); color: var(--primary-dark); width: 42px; height: 42px; border-radius: 10px; cursor: pointer;">
+          <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <span class="badge-mint" style="margin-bottom: 1rem;">Interactive Triage</span>
-      <h1>Symptom & <span class="gradient-text">Anatomy Explorer</span></h1>
-      <p>Select your health area to get an immediate homeopathic diagnosis recommendation.</p>
+      <span class="badge-mint" style="margin-bottom: 1rem;" data-en="Interactive Triage" data-hi="लक्षण जाँच टूल">Interactive Triage</span>
+      <h1 data-en="Symptom & Anatomy Explorer" data-hi="शारीरिक लक्षण एवं रोग जाँच">Symptom & <span class="gradient-text">Anatomy Explorer</span></h1>
+      <p data-en="Select your health area to get an immediate homeopathic diagnosis recommendation." data-hi="अपनी बीमारी या लक्षण चुनें और त्वरित होम्योपैथिक मार्गदर्शन प्राप्त करें।">Select your health area to get an immediate homeopathic diagnosis recommendation.</p>
     </div>
   </section>
 
@@ -60,32 +91,32 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin-bottom: 2.5rem;">
         <div class="body-spot active" id="spot-stone" onclick="selectSpot('stone')">
           <i data-lucide="activity" style="width: 28px; height: 28px; color: var(--primary); margin-bottom: 0.5rem;"></i>
-          <h4 style="font-size: 1rem; font-weight: 800;">Renal / Stones</h4>
-          <p style="font-size: 0.78rem; color: var(--text-muted);">Kidney & Gallbladder</p>
+          <h4 style="font-size: 1rem; font-weight: 800;" data-en="Renal / Stones" data-hi="गुर्दे / पथरी">Renal / Stones</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted);" data-en="Kidney & Gallbladder" data-hi="किडनी व पित्ताशय">Kidney & Gallbladder</p>
         </div>
 
         <div class="body-spot" id="spot-gluten" onclick="selectSpot('gluten')">
           <i data-lucide="wheat" style="width: 28px; height: 28px; color: var(--accent-gold); margin-bottom: 0.5rem;"></i>
-          <h4 style="font-size: 1rem; font-weight: 800;">Wheat / Gluten</h4>
-          <p style="font-size: 0.78rem; color: var(--text-muted);">Coeliac Allergy</p>
+          <h4 style="font-size: 1rem; font-weight: 800;" data-en="Wheat / Gluten" data-hi="गेहूं / ग्लूटेन">Wheat / Gluten</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted);" data-en="Coeliac Allergy" data-hi="सिलिएक एलर्जी">Coeliac Allergy</p>
         </div>
 
         <div class="body-spot" id="spot-skin" onclick="selectSpot('skin')">
           <i data-lucide="sparkles" style="width: 28px; height: 28px; color: #ec4899; margin-bottom: 0.5rem;"></i>
-          <h4 style="font-size: 1rem; font-weight: 800;">Skin & Hair</h4>
-          <p style="font-size: 0.78rem; color: var(--text-muted);">Psoriasis & Vitiligo</p>
+          <h4 style="font-size: 1rem; font-weight: 800;" data-en="Skin & Hair" data-hi="त्वचा व बाल">Skin & Hair</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted);" data-en="Psoriasis & Vitiligo" data-hi="सोरायसिस व सफेद दाग">Psoriasis & Vitiligo</p>
         </div>
 
         <div class="body-spot" id="spot-joint" onclick="selectSpot('joint')">
           <i data-lucide="bone" style="width: 28px; height: 28px; color: #8b5cf6; margin-bottom: 0.5rem;"></i>
-          <h4 style="font-size: 1rem; font-weight: 800;">Joints & Bones</h4>
-          <p style="font-size: 0.78rem; color: var(--text-muted);">Rheumatoid Arthritis</p>
+          <h4 style="font-size: 1rem; font-weight: 800;" data-en="Joints & Bones" data-hi="जोड़ों का दर्द">Joints & Bones</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted);" data-en="Rheumatoid Arthritis" data-hi="गठिया व आर्थराइटिस">Rheumatoid Arthritis</p>
         </div>
 
         <div class="body-spot" id="spot-asthma" onclick="selectSpot('asthma')">
           <i data-lucide="wind" style="width: 28px; height: 28px; color: #06b6d4; margin-bottom: 0.5rem;"></i>
-          <h4 style="font-size: 1rem; font-weight: 800;">Lungs & Sinus</h4>
-          <p style="font-size: 0.78rem; color: var(--text-muted);">Asthma & Rhinitis</p>
+          <h4 style="font-size: 1rem; font-weight: 800;" data-en="Lungs & Sinus" data-hi="फेफड़े व दमा">Lungs & Sinus</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted);" data-en="Asthma & Rhinitis" data-hi="अस्थमा व एलर्जी">Asthma & Rhinitis</p>
         </div>
       </div>
 
@@ -105,7 +136,7 @@
   <div class="modal-overlay" id="bookingModal">
     <div class="modal-content glass-card">
       <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; border: none; background: none; font-size: 1.2rem; cursor: pointer;">✕</button>
-      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Book Appointment</h2>
+      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</h2>
       <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Aarogyam Hospital • Dr. P. Kumar</p>
       <form onsubmit="handleModalSubmit(event)">
         <input type="text" id="modalName" required placeholder="Full Name" style="width: 100%; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-color);" />
@@ -115,9 +146,8 @@
     </div>
   </div>
 
+  <script src="js/translation.js"></script>
   <script>
-    lucide.createIcons();
-
     const spotData = {
       stone: {
         title: 'Renal & Gallbladder Stone Non-Surgical Cure',
@@ -176,15 +206,6 @@
           <span style="font-size: 0.9rem; font-weight: 800; color: var(--accent-gold);">Success Rate: ${data.rate}</span>
         </div>
       `;
-    }
-
-    function openModal() { document.getElementById('bookingModal').classList.add('active'); }
-    function closeModal() { document.getElementById('bookingModal').classList.remove('active'); }
-    function handleModalSubmit(e) {
-      e.preventDefault();
-      const text = `*NEW APPOINTMENT BOOKING*\nName: ${document.getElementById('modalName').value}\nPhone: ${document.getElementById('modalPhone').value}`;
-      window.open(`https://wa.me/919452994529?text=${encodeURIComponent(text)}`, '_blank');
-      closeModal();
     }
 
     selectSpot('stone');

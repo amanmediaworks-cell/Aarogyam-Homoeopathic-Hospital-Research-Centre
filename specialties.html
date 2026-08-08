@@ -15,149 +15,143 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- TOP HELPLINE BAR -->
+  <div style="background: linear-gradient(90deg, #022c22 0%, #059669 100%); color: #ffffff; padding: 0.5rem 0; font-size: 0.88rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem;">
+      <div style="display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap;">
+        <span style="display: flex; align-items: center; gap: 0.45rem; font-weight: 600;">
+          <span class="live-pulse"></span>
+          <span data-en="Patna OPD Active Today" data-hi="पटना ओपीडी आज खुला है">Patna OPD Active Today</span>
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="tel:+919452994529" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+          <i data-lucide="phone-call" style="width: 15px; height: 15px; color: #38bdf8;"></i>
+          <span>+91 94529 94529</span>
+        </a>
+        <button class="langBtn" onclick="toggleLanguage()" style="background: rgba(255, 255, 255, 0.25); color: #ffffff; border: none; padding: 0.25rem 0.65rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 800;">
+          🇮🇳 हिंदी
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
   <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-glass); border-bottom: 1px solid var(--border-color); backdrop-filter: blur(20px); padding: 0.85rem 0;">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.9rem;">
-        <div style="width: 52px; height: 52px; border-radius: 14px; overflow: hidden; border: 2px solid var(--primary); background: #ffffff;">
-          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;" />
+      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.8rem;">
+        <div class="logo-container">
+          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" onerror="this.src='public/cropped-Aarogyam-Homoeopathic.jpeg'" />
         </div>
         <div>
-          <span style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
-          <p style="font-size: 0.78rem; color: var(--primary-light); font-weight: 700;">Homoeopathic Hospital (Since 1964)</p>
+          <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
+          <p style="font-size: 0.75rem; color: var(--primary-light); font-weight: 700;" data-en="Homoeopathic Hospital (Since 1964)" data-hi="होम्योपैथिक अस्पताल (1964 से)">Homoeopathic Hospital (Since 1964)</p>
         </div>
       </a>
 
-      <nav style="display: flex; align-items: center; gap: 0.8rem;" class="hide-on-mobile">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About Us</a>
-        <a href="specialties.html" class="nav-link active">Specialties</a>
-        <a href="stone-calculator.html" class="nav-link">Stone Calculator</a>
-        <a href="symptom-triage.html" class="nav-link">Symptom Assessment</a>
-        <a href="testimonials.html" class="nav-link">Recovery Stories</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+      <nav style="display: flex; align-items: center; gap: 0.6rem;" class="hide-on-mobile">
+        <a href="index.html" class="nav-link" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+        <a href="online-consultation.html" class="nav-link" style="color: #f59e0b; font-weight: 800;" data-en="🌐 Online Consultation" data-hi="🌐 ऑनलाइन परामर्श">🌐 Online Consultation</a>
+        <a href="about.html" class="nav-link" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
+        <a href="specialties.html" class="nav-link active" data-en="Specialties" data-hi="इलाज विशेषज्ञता">Specialties</a>
+        <a href="stone-calculator.html" class="nav-link" data-en="Stone Calculator" data-hi="पथरी कैलकुलेटर">Stone Calculator</a>
+        <a href="symptom-triage.html" class="nav-link" data-en="Symptom Assessment" data-hi="लक्षण जाँच">Symptom Assessment</a>
+        <a href="testimonials.html" class="nav-link" data-en="Recovery Stories" data-hi="मरीजों के अनुभव">Recovery Stories</a>
+        <a href="contact.html" class="nav-link" data-en="Contact" data-hi="संपर्क">Contact</a>
       </nav>
 
-      <button onclick="openModal()" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.92rem;">
-        <span>Book Consultation</span>
-      </button>
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button onclick="toggleTheme()" style="background: var(--bg-alt); border: 1px solid var(--border-color); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <i data-lucide="moon" id="themeIcon" style="width: 20px; height: 20px;"></i>
+        </button>
+        <button onclick="openModal()" class="btn-primary hide-on-mobile">
+          <span data-en="Book Consultation" data-hi="परामर्श बुक करें">Book Consultation</span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="show-on-mobile" style="background: var(--primary-bg); border: 1px solid var(--primary); color: var(--primary-dark); width: 42px; height: 42px; border-radius: 10px; cursor: pointer;">
+          <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- MOBILE SLIDE-OUT DRAWER NAVIGATION -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-light);" data-en="Navigation" data-hi="नेविगेशन">Navigation</h3>
+      <button onclick="toggleMobileMenu()" style="background: var(--bg-alt); border: none; width: 36px; height: 36px; border-radius: 50%; font-weight: 800; cursor: pointer;">✕</button>
+    </div>
+
+    <a href="index.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+    <a href="online-consultation.html" class="nav-link" style="color: #f59e0b; font-weight: 800;" onclick="toggleMobileMenu()" data-en="🌐 Online Video Consultation" data-hi="🌐 ऑनलाइन वीडियो परामर्श">🌐 Online Video Consultation</a>
+    <a href="about.html" class="nav-link" onclick="toggleMobileMenu()" data-en="About Us & Heritage" data-hi="हमारे बारे में">About Us & Heritage</a>
+    <a href="specialties.html" class="nav-link active" onclick="toggleMobileMenu()" data-en="Clinical Specialties" data-hi="इलाज विशेषज्ञता">Clinical Specialties</a>
+    <a href="stone-calculator.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Stone Recovery Estimator" data-hi="पथरी कैलकुलेटर">Stone Recovery Estimator</a>
+    <a href="symptom-triage.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Symptom Assessment" data-hi="लक्षण जाँच">Symptom Assessment</a>
+    <a href="testimonials.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Recovery Stories" data-hi="मरीजों के अनुभव">Recovery Stories</a>
+    <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Contact" data-hi="संपर्क">Contact</a>
+  </div>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <span class="badge-mint" style="margin-bottom: 1rem;">Clinical Excellence</span>
-      <h1>Specialized <span class="gradient-text">Homeopathic Treatments</span></h1>
-      <p>Targeted, constitutional remedies for non-surgical stone dissolution, gluten allergies, and chronic diseases.</p>
+      <span class="badge-mint" style="margin-bottom: 1rem;" data-en="Clinical Excellence" data-hi="उच्चतम चिकित्सा सेवा">Clinical Excellence</span>
+      <h1 data-en="Specialized Homeopathic Treatments" data-hi="विशेषज्ञ होम्योपैथिक इलाज">Specialized <span class="gradient-text">Homeopathic Treatments</span></h1>
+      <p data-en="Targeted, constitutional remedies for non-surgical stone dissolution, gluten allergies, and chronic diseases." data-hi="बिना ऑपरेशन पथरी गलाने, ग्लूटेन एलर्जी और असाध्य रोगों के लिए आधुनिक क्लासिकल होम्योपैथिक दवाएं।">Targeted, constitutional remedies for non-surgical stone dissolution, gluten allergies, and chronic diseases.</p>
     </div>
   </section>
 
   <!-- SPECIALTIES GRID -->
   <section class="section-padding">
     <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2.2rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem;">
         
         <!-- Specialty 1 -->
-        <div class="glass-card" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="glass-card" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="badge-mint" style="font-size: 0.76rem;">Non-Surgical Care</span>
-              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);">Success: 96%</span>
+              <span class="badge-mint" style="font-size: 0.76rem;" data-en="Non-Surgical Care" data-hi="बिना ऑपरेशन">Non-Surgical Care</span>
+              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);" data-en="Success: 96%" data-hi="सफलता: 96%">Success: 96%</span>
             </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;">Kidney & Gallbladder Stones</h3>
-            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;">Painless dissolution into fine micro-particles</p>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">High-potency Hahnemannian liquid dilutions break down renal calculi and biliary stones naturally without surgical procedures.</p>
-            <div style="background: var(--bg-alt); padding: 0.8rem; border-radius: 10px; font-size: 0.82rem; margin-bottom: 1.5rem;">
-              <strong>Symptoms Treated:</strong> Flank pain, urinary burning, hematuria, nausea.
-            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;" data-en="Kidney & Gallbladder Stones" data-hi="गुर्दे व पित्त की पथरी">Kidney & Gallbladder Stones</h3>
+            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;" data-en="Painless dissolution into fine micro-particles" data-hi="बिना दर्द पथरी को रेत की तरह गलाने का इलाज">Painless dissolution into fine micro-particles</p>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;" data-en="High-potency Hahnemannian liquid dilutions break down renal calculi and biliary stones naturally without surgical procedures." data-hi="उच्च पोटेंसी होम्योपैथिक दवाओं से गुर्दे और पित्ताशय की पथरी बिना ऑपरेशन के पूरी तरह गल जाती है।">High-potency Hahnemannian liquid dilutions break down renal calculi and biliary stones naturally without surgical procedures.</p>
           </div>
-          <button onclick="openModal('Kidney & Gallbladder Stones')" class="btn-primary" style="width: 100%;">Book Consultation</button>
+          <button onclick="openModal('Kidney & Gallbladder Stones')" class="btn-primary" style="width: 100%;">
+            <span data-en="Book Consultation" data-hi="परामर्श बुक करें">Book Consultation</span>
+          </button>
         </div>
 
         <!-- Specialty 2 -->
-        <div class="glass-card" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="glass-card" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="badge-heritage" style="font-size: 0.76rem;">Coeliac Protocol</span>
-              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);">Success: 92%</span>
+              <span class="badge-heritage" style="font-size: 0.76rem;" data-en="Coeliac Protocol" data-hi="ग्लूटेन एलर्जी">Coeliac Protocol</span>
+              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);" data-en="Success: 92%" data-hi="सफलता: 92%">Success: 92%</span>
             </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;">Coeliac & Wheat/Gluten Allergy</h3>
-            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;">Intestinal villi regeneration & tTG cure</p>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">Re-balances anti-tTG antibody hyperactivity, heals gut lining, and allows patients to safely resume a normal wheat diet.</p>
-            <div style="background: var(--bg-alt); padding: 0.8rem; border-radius: 10px; font-size: 0.82rem; margin-bottom: 1.5rem;">
-              <strong>Symptoms Treated:</strong> Diarrhea, severe bloating, malabsorption, weakness.
-            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;" data-en="Coeliac & Wheat Allergy" data-hi="गेहूं व आटा (ग्लूटेन) एलर्जी">Coeliac & Wheat Allergy</h3>
+            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;" data-en="Intestinal villi regeneration & tTG cure" data-hi="आंतों का सुधार व एंटी-tTG सामान्य करना">Intestinal villi regeneration & tTG cure</p>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;" data-en="Re-balances anti-tTG antibody hyperactivity, heals gut lining, and allows patients to safely resume a normal wheat diet." data-hi="डॉ. पी. कुमार की विशेष दवाएं आंतों की रोग प्रतिरोधक क्षमता सुधार कर गेहूं एलर्जी दूर करती हैं।">Re-balances anti-tTG antibody hyperactivity, heals gut lining, and allows patients to safely resume a normal wheat diet.</p>
           </div>
-          <button onclick="openModal('Coeliac & Wheat Allergy')" class="btn-primary" style="width: 100%;">Book Consultation</button>
+          <button onclick="openModal('Coeliac & Wheat Allergy')" class="btn-primary" style="width: 100%;">
+            <span data-en="Book Consultation" data-hi="परामर्श बुक करें">Book Consultation</span>
+          </button>
         </div>
 
         <!-- Specialty 3 -->
-        <div class="glass-card" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="glass-card" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="badge-mint" style="font-size: 0.76rem;">Skin Regeneration</span>
-              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);">Success: 94%</span>
+              <span class="badge-mint" style="font-size: 0.76rem;" data-en="Skin Care" data-hi="त्वचा रोग">Skin Care</span>
+              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);" data-en="Success: 94%" data-hi="सफलता: 94%">Success: 94%</span>
             </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;">Psoriasis, Eczema & Vitiligo</h3>
-            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;">Root-cause cellular skin clearance</p>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">Constitutional remedies correct skin cell hyper-proliferation, eliminate scaly plaques, and restore natural skin pigmentation.</p>
-            <div style="background: var(--bg-alt); padding: 0.8rem; border-radius: 10px; font-size: 0.82rem; margin-bottom: 1.5rem;">
-              <strong>Symptoms Treated:</strong> Red scaly patches, intense itching, white vitiligo spots.
-            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;" data-en="Psoriasis, Eczema & Vitiligo" data-hi="सोरायसिस, एग्जिमा व सफेद दाग">Psoriasis, Eczema & Vitiligo</h3>
+            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;" data-en="Root-cause cellular skin clearance" data-hi="बिना स्टेरॉयड त्वचा रोगों का इलाज">Root-cause cellular skin clearance</p>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;" data-en="Constitutional remedies correct skin cell hyper-proliferation, eliminate scaly plaques, and restore natural skin pigmentation." data-hi="गंभीर त्वचा रोगों का जड़ से इलाज करके त्वचा को प्राकृतिक रूप से स्वस्थ बनाती हैं।">Constitutional remedies correct skin cell hyper-proliferation, eliminate scaly plaques, and restore natural skin pigmentation.</p>
           </div>
-          <button onclick="openModal('Psoriasis & Eczema')" class="btn-primary" style="width: 100%;">Book Consultation</button>
-        </div>
-
-        <!-- Specialty 4 -->
-        <div class="glass-card" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="badge-mint" style="font-size: 0.76rem;">Joint Mobility</span>
-              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);">Success: 95%</span>
-            </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;">Rheumatoid & Osteoarthritis</h3>
-            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;">Halting cartilage breakdown</p>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">Reduces synovial membrane swelling, halts degenerative joint arthritis, and restores pain-free movement without steroids.</p>
-            <div style="background: var(--bg-alt); padding: 0.8rem; border-radius: 10px; font-size: 0.82rem; margin-bottom: 1.5rem;">
-              <strong>Symptoms Treated:</strong> Joint rigidity, knee swelling, morning stiffness.
-            </div>
-          </div>
-          <button onclick="openModal('Rheumatoid Arthritis')" class="btn-primary" style="width: 100%;">Book Consultation</button>
-        </div>
-
-        <!-- Specialty 5 -->
-        <div class="glass-card" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="badge-mint" style="font-size: 0.76rem;">Respiratory Care</span>
-              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);">Success: 93%</span>
-            </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;">Asthma & Allergic Rhinitis</h3>
-            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;">Inhaler independence therapy</p>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">Desensitization remedies reducing bronchial hypersensitivity to dust, cold air, and seasonal pollen burst.</p>
-            <div style="background: var(--bg-alt); padding: 0.8rem; border-radius: 10px; font-size: 0.82rem; margin-bottom: 1.5rem;">
-              <strong>Symptoms Treated:</strong> Wheezing, sneezing fits, chest tightness, sinusitis.
-            </div>
-          </div>
-          <button onclick="openModal('Asthma & Sinusitis')" class="btn-primary" style="width: 100%;">Book Consultation</button>
-        </div>
-
-        <!-- Specialty 6 -->
-        <div class="glass-card" style="padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="badge-mint" style="font-size: 0.76rem;">Digestive Care</span>
-              <span style="font-size: 0.82rem; font-weight: 800; color: var(--accent-gold);">Success: 94%</span>
-            </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;">IBS, GERD & Fatty Liver</h3>
-            <p style="font-size: 0.88rem; color: var(--primary-light); font-weight: 700; margin-bottom: 1rem;">Gut-brain axis restoration</p>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.2rem;">Restores gut motility, cures hyperacidity and reduces fatty liver inflammation without synthetic antacids.</p>
-            <div style="background: var(--bg-alt); padding: 0.8rem; border-radius: 10px; font-size: 0.82rem; margin-bottom: 1.5rem;">
-              <strong>Symptoms Treated:</strong> Acid reflux, alternating bowel habits, abdominal gas.
-            </div>
-          </div>
-          <button onclick="openModal('IBS & Fatty Liver')" class="btn-primary" style="width: 100%;">Book Consultation</button>
+          <button onclick="openModal('Psoriasis & Eczema')" class="btn-primary" style="width: 100%;">
+            <span data-en="Book Consultation" data-hi="परामर्श बुक करें">Book Consultation</span>
+          </button>
         </div>
 
       </div>
@@ -175,30 +169,16 @@
   <div class="modal-overlay" id="bookingModal">
     <div class="modal-content glass-card">
       <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; border: none; background: none; font-size: 1.2rem; cursor: pointer;">✕</button>
-      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Book Appointment</h2>
+      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</h2>
       <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Aarogyam Hospital • Dr. P. Kumar</p>
       <form onsubmit="handleModalSubmit(event)">
         <input type="text" id="modalName" required placeholder="Full Name" style="width: 100%; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-color);" />
         <input type="tel" id="modalPhone" required placeholder="Mobile Number" style="width: 100%; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-color);" />
-        <input type="hidden" id="modalSpecialty" value="Specialty Consultation" />
         <button type="submit" class="btn-primary" style="width: 100%;">Send to WhatsApp (+91 94529 94529)</button>
       </form>
     </div>
   </div>
 
-  <script>
-    lucide.createIcons();
-    function openModal(specialty) { 
-      document.getElementById('bookingModal').classList.add('active'); 
-      if (specialty) document.getElementById('modalSpecialty').value = specialty;
-    }
-    function closeModal() { document.getElementById('bookingModal').classList.remove('active'); }
-    function handleModalSubmit(e) {
-      e.preventDefault();
-      const text = `*NEW APPOINTMENT BOOKING*\nName: ${document.getElementById('modalName').value}\nPhone: ${document.getElementById('modalPhone').value}\nSpecialty: ${document.getElementById('modalSpecialty').value}`;
-      window.open(`https://wa.me/919452994529?text=${encodeURIComponent(text)}`, '_blank');
-      closeModal();
-    }
-  </script>
+  <script src="js/translation.js"></script>
 </body>
 </html>

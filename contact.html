@@ -15,41 +15,72 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- TOP HELPLINE BAR -->
+  <div style="background: linear-gradient(90deg, #022c22 0%, #059669 100%); color: #ffffff; padding: 0.5rem 0; font-size: 0.88rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem;">
+      <div style="display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap;">
+        <span style="display: flex; align-items: center; gap: 0.45rem; font-weight: 600;">
+          <span class="live-pulse"></span>
+          <span data-en="Patna OPD Active Today" data-hi="पटना ओपीडी आज खुला है">Patna OPD Active Today</span>
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="tel:+919452994529" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+          <i data-lucide="phone-call" style="width: 15px; height: 15px; color: #38bdf8;"></i>
+          <span>+91 94529 94529</span>
+        </a>
+        <button class="langBtn" onclick="toggleLanguage()" style="background: rgba(255, 255, 255, 0.25); color: #ffffff; border: none; padding: 0.25rem 0.65rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 800;">
+          🇮🇳 हिंदी
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
   <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-glass); border-bottom: 1px solid var(--border-color); backdrop-filter: blur(20px); padding: 0.85rem 0;">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.9rem;">
-        <div style="width: 52px; height: 52px; border-radius: 14px; overflow: hidden; border: 2px solid var(--primary); background: #ffffff;">
-          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;" />
+      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.8rem;">
+        <div class="logo-container">
+          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" onerror="this.src='public/cropped-Aarogyam-Homoeopathic.jpeg'" />
         </div>
         <div>
-          <span style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
-          <p style="font-size: 0.78rem; color: var(--primary-light); font-weight: 700;">Homoeopathic Hospital (Since 1964)</p>
+          <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
+          <p style="font-size: 0.75rem; color: var(--primary-light); font-weight: 700;" data-en="Homoeopathic Hospital (Since 1964)" data-hi="होम्योपैथिक अस्पताल (1964 से)">Homoeopathic Hospital (Since 1964)</p>
         </div>
       </a>
 
-      <nav style="display: flex; align-items: center; gap: 0.8rem;" class="hide-on-mobile">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About Us</a>
-        <a href="specialties.html" class="nav-link">Specialties</a>
-        <a href="stone-calculator.html" class="nav-link">Stone Calculator</a>
-        <a href="symptom-triage.html" class="nav-link">Symptom Assessment</a>
-        <a href="testimonials.html" class="nav-link">Recovery Stories</a>
-        <a href="contact.html" class="nav-link active">Contact</a>
+      <nav style="display: flex; align-items: center; gap: 0.6rem;" class="hide-on-mobile">
+        <a href="index.html" class="nav-link" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+        <a href="online-consultation.html" class="nav-link" style="color: #f59e0b; font-weight: 800;" data-en="🌐 Online Consultation" data-hi="🌐 ऑनलाइन परामर्श">🌐 Online Consultation</a>
+        <a href="about.html" class="nav-link" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
+        <a href="specialties.html" class="nav-link" data-en="Specialties" data-hi="इलाज विशेषज्ञता">Specialties</a>
+        <a href="stone-calculator.html" class="nav-link" data-en="Stone Calculator" data-hi="पथरी कैलकुलेटर">Stone Calculator</a>
+        <a href="symptom-triage.html" class="nav-link" data-en="Symptom Assessment" data-hi="लक्षण जाँच">Symptom Assessment</a>
+        <a href="testimonials.html" class="nav-link" data-en="Recovery Stories" data-hi="मरीजों के अनुभव">Recovery Stories</a>
+        <a href="contact.html" class="nav-link active" data-en="Contact" data-hi="संपर्क">Contact</a>
       </nav>
 
-      <button onclick="openModal()" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.92rem;">
-        <span>Book Consultation</span>
-      </button>
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button onclick="toggleTheme()" style="background: var(--bg-alt); border: 1px solid var(--border-color); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <i data-lucide="moon" id="themeIcon" style="width: 20px; height: 20px;"></i>
+        </button>
+        <button onclick="openModal()" class="btn-primary hide-on-mobile">
+          <span data-en="Book Consultation" data-hi="परामर्श बुक करें">Book Consultation</span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="show-on-mobile" style="background: var(--primary-bg); border: 1px solid var(--primary); color: var(--primary-dark); width: 42px; height: 42px; border-radius: 10px; cursor: pointer;">
+          <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <span class="badge-mint" style="margin-bottom: 1rem;">Get In Touch</span>
-      <h1>Contact & <span class="gradient-text">Hospital Location</span></h1>
-      <p>Visit our Patna OPD center or contact us via WhatsApp for global online appointments.</p>
+      <span class="badge-mint" style="margin-bottom: 1rem;" data-en="Get In Touch" data-hi="संपर्क करें">Get In Touch</span>
+      <h1 data-en="Contact & Hospital Location" data-hi="संपर्क व अस्पताल का पता">Contact & <span class="gradient-text">Hospital Location</span></h1>
+      <p data-en="Visit our Patna OPD center or contact us via WhatsApp for global online appointments." data-hi="हमारे पटना अस्पताल आएं अथवा व्हाट्सएप द्वारा ऑनलाइन अपॉइंटमेंट लें।">Visit our Patna OPD center or contact us via WhatsApp for global online appointments.</p>
     </div>
   </section>
 
@@ -60,9 +91,9 @@
         
         <div class="glass-card" style="padding: 2.2rem;">
           <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 1.5rem;">Aarogyam Homoeopathic Hospital</h3>
-          <p style="margin-bottom: 1.2rem; font-size: 0.98rem;"><strong>Address:</strong> Patna Railway Colony, Near RBS Hospital, Digha, Patna, Bihar - 800011</p>
-          <p style="margin-bottom: 1.2rem; font-size: 0.98rem;"><strong>Direct Phone:</strong> +91 94529 94529</p>
-          <p style="margin-bottom: 1.8rem; font-size: 0.98rem;"><strong>OPD Hours:</strong> Monday – Saturday: 10:00 AM – 7:00 PM</p>
+          <p style="margin-bottom: 1.2rem; font-size: 0.98rem;" data-en="Address: Patna Railway Colony, Near RBS Hospital, Digha, Patna, Bihar - 800011" data-hi="पता: पटना रेलवे कॉलोनी, निकट आरबीएस अस्पताल, दीघा, पटना, बिहार - 800011"><strong>Address:</strong> Patna Railway Colony, Near RBS Hospital, Digha, Patna, Bihar - 800011</p>
+          <p style="margin-bottom: 1.2rem; font-size: 0.98rem;" data-en="Direct Phone: +91 94529 94529" data-hi="फ़ोन नंबर: +91 94529 94529"><strong>Direct Phone:</strong> +91 94529 94529</p>
+          <p style="margin-bottom: 1.8rem; font-size: 0.98rem;" data-en="OPD Hours: Monday – Saturday: 10:00 AM – 7:00 PM" data-hi="ओपीडी समय: सोमवार – शनिवार: सुबह 10:00 से शाम 7:00 तक"><strong>OPD Hours:</strong> Monday – Saturday: 10:00 AM – 7:00 PM</p>
           
           <a href="https://wa.me/919452994529" target="_blank" class="btn-whatsapp" style="width: 100%;">
             <span>WhatsApp Direct Helpline (+91 94529 94529)</span>
@@ -88,7 +119,7 @@
   <div class="modal-overlay" id="bookingModal">
     <div class="modal-content glass-card">
       <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; border: none; background: none; font-size: 1.2rem; cursor: pointer;">✕</button>
-      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Book Appointment</h2>
+      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</h2>
       <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Aarogyam Hospital • Dr. P. Kumar</p>
       <form onsubmit="handleModalSubmit(event)">
         <input type="text" id="modalName" required placeholder="Full Name" style="width: 100%; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-color);" />
@@ -98,16 +129,6 @@
     </div>
   </div>
 
-  <script>
-    lucide.createIcons();
-    function openModal() { document.getElementById('bookingModal').classList.add('active'); }
-    function closeModal() { document.getElementById('bookingModal').classList.remove('active'); }
-    function handleModalSubmit(e) {
-      e.preventDefault();
-      const text = `*NEW APPOINTMENT BOOKING*\nName: ${document.getElementById('modalName').value}\nPhone: ${document.getElementById('modalPhone').value}`;
-      window.open(`https://wa.me/919452994529?text=${encodeURIComponent(text)}`, '_blank');
-      closeModal();
-    }
-  </script>
+  <script src="js/translation.js"></script>
 </body>
 </html>

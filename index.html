@@ -80,7 +80,7 @@
         <a href="contact.html" class="nav-link" data-en="Contact" data-hi="संपर्क">Contact</a>
       </nav>
 
-      <!-- Desktop & Mobile Right Actions -->
+      <!-- Right Actions -->
       <div style="display: flex; align-items: center; gap: 0.75rem;">
         <button onclick="toggleTheme()" style="background: var(--bg-alt); border: 1px solid var(--border-color); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
           <i data-lucide="moon" id="themeIcon" style="width: 20px; height: 20px;"></i>
@@ -103,7 +103,7 @@
   <!-- MOBILE SLIDE-OUT DRAWER NAVIGATION -->
   <div class="mobile-nav-drawer" id="mobileDrawer">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-light);">Navigation</h3>
+      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-light);" data-en="Navigation" data-hi="नेविगेशन">Navigation</h3>
       <button onclick="toggleMobileMenu()" style="background: var(--bg-alt); border: none; width: 36px; height: 36px; border-radius: 50%; font-weight: 800; cursor: pointer;">✕</button>
     </div>
 
@@ -289,59 +289,6 @@
     </div>
   </div>
 
-  <script>
-    lucide.createIcons();
-    let isDark = false;
-    let isHindi = false;
-
-    function toggleMobileMenu() {
-      const drawer = document.getElementById('mobileDrawer');
-      if (drawer) drawer.classList.toggle('active');
-    }
-
-    function toggleLanguage() {
-      isHindi = !isHindi;
-      document.querySelectorAll('.langBtn').forEach(btn => {
-        btn.innerHTML = isHindi ? '🇬🇧 English' : '🇮🇳 हिंदी';
-      });
-
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const textEn = el.getAttribute('data-en');
-        const textHi = el.getAttribute('data-hi');
-        if (isHindi && textHi) {
-          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = textHi;
-          } else {
-            el.innerText = textHi;
-          }
-        } else if (!isHindi && textEn) {
-          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = textEn;
-          } else {
-            el.innerText = textEn;
-          }
-        }
-      });
-    }
-
-    function toggleTheme() {
-      isDark = !isDark;
-      document.body.classList.toggle('dark-theme', isDark);
-      document.getElementById('themeIcon').setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-      lucide.createIcons();
-    }
-
-    function openModal() { document.getElementById('bookingModal').classList.add('active'); }
-    function closeModal() { document.getElementById('bookingModal').classList.remove('active'); }
-
-    function handleModalSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('modalName').value;
-      const phone = document.getElementById('modalPhone').value;
-      const text = `*NEW APPOINTMENT BOOKING - AAROGYAM HOSPITAL*\nPatient Name: ${name}\nPhone: ${phone}\nPlease confirm my consultation slot with Dr. P. Kumar.`;
-      window.open(`https://wa.me/919452994529?text=${encodeURIComponent(text)}`, '_blank');
-      closeModal();
-    }
-  </script>
+  <script src="js/translation.js"></script>
 </body>
 </html>

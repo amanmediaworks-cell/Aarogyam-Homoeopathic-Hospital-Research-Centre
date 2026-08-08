@@ -15,41 +15,89 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- TOP HELPLINE BAR -->
+  <div style="background: linear-gradient(90deg, #022c22 0%, #059669 100%); color: #ffffff; padding: 0.5rem 0; font-size: 0.88rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem;">
+      <div style="display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap;">
+        <span style="display: flex; align-items: center; gap: 0.45rem; font-weight: 600;">
+          <span class="live-pulse"></span>
+          <span data-en="Patna OPD Active Today" data-hi="पटना ओपीडी आज खुला है">Patna OPD Active Today</span>
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="tel:+919452994529" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+          <i data-lucide="phone-call" style="width: 15px; height: 15px; color: #38bdf8;"></i>
+          <span>+91 94529 94529</span>
+        </a>
+        <button class="langBtn" onclick="toggleLanguage()" style="background: rgba(255, 255, 255, 0.25); color: #ffffff; border: none; padding: 0.25rem 0.65rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 800;">
+          🇮🇳 हिंदी
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
   <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-glass); border-bottom: 1px solid var(--border-color); backdrop-filter: blur(20px); padding: 0.85rem 0;">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.9rem;">
-        <div style="width: 52px; height: 52px; border-radius: 14px; overflow: hidden; border: 2px solid var(--primary); background: #ffffff;">
-          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;" />
+      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.8rem;">
+        <div class="logo-container">
+          <img src="cropped-Aarogyam-Homoeopathic.jpeg" alt="Logo" onerror="this.src='public/cropped-Aarogyam-Homoeopathic.jpeg'" />
         </div>
         <div>
-          <span style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
-          <p style="font-size: 0.78rem; color: var(--primary-light); font-weight: 700;">Homoeopathic Hospital (Since 1964)</p>
+          <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 900; color: var(--text-main);">AAROGYAM</span>
+          <p style="font-size: 0.75rem; color: var(--primary-light); font-weight: 700;" data-en="Homoeopathic Hospital (Since 1964)" data-hi="होम्योपैथिक अस्पताल (1964 से)">Homoeopathic Hospital (Since 1964)</p>
         </div>
       </a>
 
-      <nav style="display: flex; align-items: center; gap: 0.8rem;" class="hide-on-mobile">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link active">About Us</a>
-        <a href="specialties.html" class="nav-link">Specialties</a>
-        <a href="stone-calculator.html" class="nav-link">Stone Calculator</a>
-        <a href="symptom-triage.html" class="nav-link">Symptom Assessment</a>
-        <a href="testimonials.html" class="nav-link">Recovery Stories</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+      <nav style="display: flex; align-items: center; gap: 0.6rem;" class="hide-on-mobile">
+        <a href="index.html" class="nav-link" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+        <a href="online-consultation.html" class="nav-link" style="color: #f59e0b; font-weight: 800;" data-en="🌐 Online Consultation" data-hi="🌐 ऑनलाइन परामर्श">🌐 Online Consultation</a>
+        <a href="about.html" class="nav-link active" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
+        <a href="specialties.html" class="nav-link" data-en="Specialties" data-hi="इलाज विशेषज्ञता">Specialties</a>
+        <a href="stone-calculator.html" class="nav-link" data-en="Stone Calculator" data-hi="पथरी कैलकुलेटर">Stone Calculator</a>
+        <a href="symptom-triage.html" class="nav-link" data-en="Symptom Assessment" data-hi="लक्षण जाँच">Symptom Assessment</a>
+        <a href="testimonials.html" class="nav-link" data-en="Recovery Stories" data-hi="मरीजों के अनुभव">Recovery Stories</a>
+        <a href="contact.html" class="nav-link" data-en="Contact" data-hi="संपर्क">Contact</a>
       </nav>
 
-      <button onclick="openModal()" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.92rem;">
-        <span>Book Consultation</span>
-      </button>
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button onclick="toggleTheme()" style="background: var(--bg-alt); border: 1px solid var(--border-color); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <i data-lucide="moon" id="themeIcon" style="width: 20px; height: 20px;"></i>
+        </button>
+        <button onclick="openModal()" class="btn-primary hide-on-mobile">
+          <span data-en="Book Consultation" data-hi="परामर्श बुक करें">Book Consultation</span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="show-on-mobile" style="background: var(--primary-bg); border: 1px solid var(--primary); color: var(--primary-dark); width: 42px; height: 42px; border-radius: 10px; cursor: pointer;">
+          <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- MOBILE SLIDE-OUT DRAWER NAVIGATION -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+      <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--primary-light);" data-en="Navigation" data-hi="नेविगेशन">Navigation</h3>
+      <button onclick="toggleMobileMenu()" style="background: var(--bg-alt); border: none; width: 36px; height: 36px; border-radius: 50%; font-weight: 800; cursor: pointer;">✕</button>
+    </div>
+
+    <a href="index.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+    <a href="online-consultation.html" class="nav-link" style="color: #f59e0b; font-weight: 800;" onclick="toggleMobileMenu()" data-en="🌐 Online Video Consultation" data-hi="🌐 ऑनलाइन वीडियो परामर्श">🌐 Online Video Consultation</a>
+    <a href="about.html" class="nav-link active" onclick="toggleMobileMenu()" data-en="About Us & Heritage" data-hi="हमारे बारे में">About Us & Heritage</a>
+    <a href="specialties.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Clinical Specialties" data-hi="इलाज विशेषज्ञता">Clinical Specialties</a>
+    <a href="stone-calculator.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Stone Recovery Estimator" data-hi="पथरी कैलकुलेटर">Stone Recovery Estimator</a>
+    <a href="symptom-triage.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Symptom Assessment" data-hi="लक्षण जाँच">Symptom Assessment</a>
+    <a href="testimonials.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Recovery Stories" data-hi="मरीजों के अनुभव">Recovery Stories</a>
+    <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()" data-en="Contact" data-hi="संपर्क">Contact</a>
+  </div>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <span class="badge-heritage" style="margin-bottom: 1rem;">Founded 1964</span>
-      <h1>About <span class="gradient-text">Aarogyam Hospital</span></h1>
-      <p>60 Years of trusted clinical excellence, high-potency Hahnemannian medicine, and compassionate non-surgical healing in Patna.</p>
+      <span class="badge-heritage" style="margin-bottom: 1rem;" data-en="Founded 1964" data-hi="स्थापना 1964">Founded 1964</span>
+      <h1 data-en="About Aarogyam Hospital" data-hi="आरोग्यम अस्पताल के बारे में">About <span class="gradient-text">Aarogyam Hospital</span></h1>
+      <p data-en="60 Years of trusted clinical excellence, high-potency Hahnemannian medicine, and compassionate non-surgical healing in Patna." data-hi="पटना में 60 वर्षों से निरंतर क्लासिकल होम्योपैथी द्वारा बिना ऑपरेशन रोगों का सफल उपचार।">60 Years of trusted clinical excellence, high-potency Hahnemannian medicine, and compassionate non-surgical healing in Patna.</p>
     </div>
   </section>
 
@@ -58,29 +106,29 @@
     <div class="container">
       <div class="about-grid">
         <div class="glass-card" style="padding: 1rem; overflow: hidden;">
-          <img src="research_lab.jpg" alt="Research Lab" style="width: 100%; border-radius: 14px; height: 440px; object-fit: cover;" />
+          <img src="research_lab.jpg" alt="Research Lab" class="img-banner" style="width: 100%; height: 420px; object-fit: cover;" />
         </div>
 
         <div>
-          <h2 style="font-size: 2.2rem; margin-bottom: 1.2rem;">Our Heritage & Medical Philosophy</h2>
-          <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.7;">
+          <h2 style="margin-bottom: 1.2rem;" data-en="Our Heritage & Medical Philosophy" data-hi="हमारी परंपरा एवं चिकित्सा दर्शन">Our Heritage & Medical Philosophy</h2>
+          <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.7;" data-en="Established in 1964 in Patna, Aarogyam Homoeopathic Hospital & Research Centre is one of Eastern India’s most revered homeopathic healthcare centers. For over six decades, our center has pioneered non-surgical clinical remedies for complex chronic conditions." data-hi="1964 में पटना में स्थापित आरोग्यम होम्योपैथिक अस्पताल पूर्वी भारत के सबसे पुराने एवं प्रतिष्ठित चिकित्सा केंद्रों में से एक है। 60 से अधिक वर्षों से हमारा अस्पताल असाध्य रोगों का सफल इलाज कर रहा है।">
             Established in 1964 in Patna, <strong>Aarogyam Homoeopathic Hospital & Research Centre</strong> is one of Eastern India’s most revered homeopathic healthcare centers. For over six decades, our center has pioneered non-surgical clinical remedies for complex chronic conditions.
           </p>
 
-          <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Dr. P. Kumar — Chief Medical Officer</h3>
-          <p style="font-size: 0.98rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          <h3 style="margin-bottom: 0.8rem;" data-en="Dr. P. Kumar — Chief Medical Officer" data-hi="डॉ. पी. कुमार — मुख्य चिकित्सा अधिकारी">Dr. P. Kumar — Chief Medical Officer</h3>
+          <p style="font-size: 0.98rem; color: var(--text-muted); margin-bottom: 1.5rem;" data-en="With over 25+ years of dedicated clinical experience, Dr. P. Kumar has successfully treated more than 75,000 patients across India, USA, UK, and UAE. His classical approach focuses on anti-miasmatic prescribing, constitutional case-taking, and bio-potentized liquid remedies that dissolve stones, cure wheat allergies, and clear severe skin disorders safely." data-hi="25 से अधिक वर्षों के अनुभव के साथ, डॉ. पी. कुमार ने भारत और विदेशों के 75,000 से अधिक मरीजों का सफलतापूर्वक इलाज किया है। उनकी क्लासिकल पद्धति बिना किसी दुष्प्रभाव के जड़ से बीमारी मिटाती है।">
             With over <strong>25+ years of dedicated clinical experience</strong>, Dr. P. Kumar has successfully treated more than 75,000 patients across India, USA, UK, and UAE. His classical approach focuses on anti-miasmatic prescribing, constitutional case-taking, and bio-potentized liquid remedies that dissolve stones, cure wheat allergies, and clear severe skin disorders safely.
           </p>
 
           <div style="background: var(--primary-bg); border-left: 4px solid var(--primary); padding: 1.2rem; border-radius: 10px; margin-bottom: 2rem;">
-            <p style="font-size: 0.95rem; font-weight: 700; color: var(--primary-dark); font-style: italic;">
+            <p style="font-size: 0.95rem; font-weight: 700; color: var(--primary-dark); font-style: italic;" data-en="'Similia Similibus Curentur — Likes are cured by likes. Our duty is to restore health rapidly, gently, and permanently without surgical trauma.'" data-hi="'सिमिलिया सिमिलिबस क्यूरेंटर — समः समं शमयति। हमारा ध्येय बिना किसी शल्य चिकित्सा के मरीज को स्थायी स्वास्थ्य प्रदान करना है।'">
               "Similia Similibus Curentur — Likes are cured by likes. Our duty is to restore health rapidly, gently, and permanently without surgical trauma."
             </p>
             <p style="font-size: 0.85rem; color: var(--text-muted); text-align: right; margin-top: 0.5rem;">— Dr. Samuel Hahnemann Principle</p>
           </div>
 
           <button onclick="openModal()" class="btn-primary">
-            <span>Consult Dr. P. Kumar Now</span>
+            <span data-en="Consult Dr. P. Kumar Now" data-hi="डॉ. पी. कुमार से परामर्श लें">Consult Dr. P. Kumar Now</span>
           </button>
         </div>
       </div>
@@ -98,7 +146,7 @@
   <div class="modal-overlay" id="bookingModal">
     <div class="modal-content glass-card">
       <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; border: none; background: none; font-size: 1.2rem; cursor: pointer;">✕</button>
-      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Book Appointment</h2>
+      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</h2>
       <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Aarogyam Hospital • Dr. P. Kumar</p>
       <form onsubmit="handleModalSubmit(event)">
         <input type="text" id="modalName" required placeholder="Full Name" style="width: 100%; padding: 0.8rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-color);" />
@@ -108,16 +156,6 @@
     </div>
   </div>
 
-  <script>
-    lucide.createIcons();
-    function openModal() { document.getElementById('bookingModal').classList.add('active'); }
-    function closeModal() { document.getElementById('bookingModal').classList.remove('active'); }
-    function handleModalSubmit(e) {
-      e.preventDefault();
-      const text = `*NEW APPOINTMENT BOOKING*\nName: ${document.getElementById('modalName').value}\nPhone: ${document.getElementById('modalPhone').value}`;
-      window.open(`https://wa.me/919452994529?text=${encodeURIComponent(text)}`, '_blank');
-      closeModal();
-    }
-  </script>
+  <script src="js/translation.js"></script>
 </body>
 </html>
